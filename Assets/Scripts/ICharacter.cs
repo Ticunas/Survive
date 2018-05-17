@@ -6,5 +6,5 @@ public interface ICharacter
 {
 	void Attack();
 	void Death();
-	void ReceiveDamage();
+	void ReceiveDamage(float damage);
 }
