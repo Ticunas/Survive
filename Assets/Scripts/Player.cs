@@ -8,6 +8,8 @@ public class Player : CharacterProperties, ICharacter
 
  public void Attack(){}
  public void Death(){}
- public void ReceiveDamage(){}
+ public void ReceiveDamage(float damage){
+     
+ }
 
 }
