@@ -52,7 +52,7 @@ public class StartScreenEnemyScript : MonoBehaviour
         if (!isMoveTime)
         {
             //Creates a random number
-            float randXPos = Random.Range(-11f, 11f);
+            float randXPos = Random.Range(-25f, 25f);
 
             //Updates the target position
             targetX = randXPos;
@@ -70,11 +70,19 @@ public class StartScreenEnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        targetX = currentX;
+        //Randomly generates a new position
+        float newPos = Random.Range(3f, 16f);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation,
-                                                    Quaternion.Euler(transform.eulerAngles.x, 180f, transform.eulerAngles.z),
-                                                    moveSpeed);
-        Debug.Log("hehe");
+        //Checks the direction that the object is moving
+        if (targetX < currentX)
+        {
+            //Updates the target position
+            targetX = currentX + newPos;
+        }
+
+        else if (targetX > currentX)
+        {
+            targetX = currentX - newPos;
+        }
     }
 }
